@@ -42,7 +42,9 @@ enum planck_keycodes {
   PASS,
   WHITE,
   PURPLE,
-  GAYNUT
+  GAYNUT,
+  LENNY,
+  BIG
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -167,7 +169,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = {
-  {_______, PASS,    GAYNUT,  _______, _______, _______, _______, _______, _______, _______, _______, _______},
+  {_______, PASS,    GAYNUT,  LENNY,   BIG,     _______, _______, _______, _______, _______, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, QWERTY,  COLEMAK, DVORAK,  PLOVER },
   {_______, _______, _______, _______, _______, _______, _______, _______, WHITE,   PURPLE,  RGB_MOD, RGB_TOG},
   {_______, _______, _______, _______, _______, _______, _______, _______, RGB_HUD, RGB_VAD, RGB_VAI, RGB_HUI}
@@ -307,8 +309,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	  }
 	  return false;
       break;
-	  
-	/*
 	case LENNY:
       if (record->event.pressed) {
 		  SEND_STRING(SS_RALT("lf"));
@@ -316,19 +316,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	  }
 	  return false;
       break;
-	case RESER:
+	case BIG:
       if (record->event.pressed) {
-		  SEND_STRING(SS_RALT("res"));
-		  SEND_STRING(SS_TAP(X_ENTER));
 	  }
 	  return false;
       break;
-	case TEXT:
-      if (record->event.pressed) {
-		  }
-	  return false;
-      break;
-	*/
   }
   return true;
 }

@@ -10,7 +10,7 @@
 
 enum {
     PASS = SAFE_RANGE,
-	LENNY,
+	NUT,
 	TWO
 };
 
@@ -24,14 +24,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         MO(FN),  KC_LGUI, KC_LALT,                   KC_SPC,                             _______, KC_RALT, MO(UTIL),KC_RCTL),
         
     [FN] = LAYOUT_all( \
-        KC_TILD, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, KC_INS,  \
+        KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, KC_INS,  \
         _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR, KC_SLCK, KC_PAUS, KC_UP,   _______, KC_BSLS, \
         KC_CAPS, KC_VOLD, KC_VOLU, KC_MUTE, _______, _______, KC_PAST, KC_PSLS, KC_HOME, KC_PGUP, KC_LEFT, KC_RGHT, KC_PENT, \
         _______, _______, KC_MPRV, KC_MNXT, KC_MPLY, _______, _______, KC_PPLS, KC_PMNS, KC_END,  KC_PGDN, KC_DOWN, _______, _______, \
-        _______, _______, _______,                   _______,                            _______, _______, _______, _______),
+        _______, _______, _______,                   _______,                            _______, _______, _______, KC_LSFT),
 		
 	[UTIL] = LAYOUT_all( \
-		RESET,   PASS,    LENNY, TWO, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, 	_______,
+		RESET,   PASS,    NUT,     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
 		_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
 		_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
 		_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
@@ -48,8 +48,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-	case LENNY:
+	case NUT:
       if (record->event.pressed) {
+		  SEND_STRING(SS_RALT("1234")SS_LSFT(SS_TAP(X_ENTER)));		  
 		  SEND_STRING(SS_RALT("qwer")SS_LSFT(SS_TAP(X_ENTER)));		  
 		  SEND_STRING(SS_RALT("wert")SS_LSFT(SS_TAP(X_ENTER)));
 		  SEND_STRING(SS_RALT("erty")SS_LSFT(SS_TAP(X_ENTER)));
@@ -59,15 +60,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		  SEND_STRING(SS_RALT("uiop")SS_LSFT(SS_TAP(X_ENTER)));
 		  SEND_STRING(SS_RALT("iop[")SS_LSFT(SS_TAP(X_ENTER)));
 		  SEND_STRING(SS_RALT("op][")SS_LSFT(SS_TAP(X_ENTER)));
+		  SEND_STRING(SS_RALT("2345")SS_LSFT(SS_TAP(X_ENTER)));		  
 	  }
 	  return false;
       break;
 	case TWO:
       if (record->event.pressed) {
-		  SEND_STRING(SS_RALT("aa\n"));
-		  //SEND_STRING("lf");
-		  //SEND_STRING(SS_TAP(X_ENTER));
-	  }
+		  }
 	  return false;
       break;    
   }	  
