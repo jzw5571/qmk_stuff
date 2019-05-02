@@ -1,0 +1,12 @@
+{
+  "name": "mailspring_dark",
+  "title": "Mailspring Dark",
+  "displayName": "Mailspring Dark",
+  "theme": "ui",
+  "version": "0.1.0",
+  "description": "A great dark theme.",
+  "license": "GPL-3.0",
+  "engines": {
+    "mailspring": "*"
+  }
+}
